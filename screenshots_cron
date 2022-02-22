@@ -1,0 +1,12 @@
+# ffmpeg
+* * * * * max /opt/API/screenshoter.sh > /dev/null 2>&1
+* * * * * max (sleep 20 ; /opt/API/screenshoter.sh) > /dev/null 2>&1
+* * * * * max (sleep 40 ; /opt/API/screenshoter.sh) > /dev/null 2>&1
+
+# update list
+*/5 * * * * k2 /opt/parser/start.sh >/dev/null 2>&1
+
+# Clear old files
+0 4 * * * max ionice -c3 find /storage/screenshots/ -type f -name "*.jpg" -mtime +8 -delete; ionice -c3 find /storage/screenshots/ -empty -type d -delete
+
+
